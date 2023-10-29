@@ -1,5 +1,5 @@
 /*
-Elastic Security YARA Rules (2023-10-12)
+Elastic Security YARA Rules (2023-10-29)
 https://github.com/elastic/protections-artifacts/
 
 Note: These rules are licensed under the Elastic License v2.
@@ -149,6 +149,7 @@ include ".\elastic\rules\Windows_Trojan_Formbook.yar"
 include ".\elastic\rules\Windows_Trojan_Garble.yar"
 include ".\elastic\rules\Windows_Trojan_Generic.yar"
 include ".\elastic\rules\Windows_Trojan_Gh0st.yar"
+include ".\elastic\rules\Windows_Trojan_GhostPulse.yar"
 include ".\elastic\rules\Windows_Trojan_Glupteba.yar"
 include ".\elastic\rules\Windows_Trojan_Gozi.yar"
 include ".\elastic\rules\Windows_Trojan_Grandoreiro.yar"
