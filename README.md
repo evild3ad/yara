@@ -1,4 +1,4 @@
 # yara
 YARA rules for MemProcFS-Analyzer
 
-<b>Last updated: 2023-11-18</b>
+<b>Last updated: 2023-12-09</b>
