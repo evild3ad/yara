@@ -88,26 +88,6 @@ rule Windows_Trojan_Generic_c7fd8d38 {
         all of them
 }
 
-rule Windows_Trojan_Generic_a160ca52 {
-    meta:
-        author = "Elastic Security"
-        id = "a160ca52-8911-4649-a1fa-ac8f6f75e18d"
-        fingerprint = "06eca9064ca27784b61994844850f05c47c07ba6c4242a2572d6d0c484a920f0"
-        creation_date = "2022-02-17"
-        last_modified = "2022-04-12"
-        threat_name = "Windows.Trojan.Generic"
-        reference_sample = "650bf19e73ac2d9ebbf62f15eeb603c2b4a6a65432c70b87edc429165d6706f3"
-        severity = 100
-        arch_context = "x86"
-        scan_context = "file, memory"
-        license = "Elastic License v2"
-        os = "windows"
-    strings:
-        $a1 = { 1C 85 C9 74 02 8B 09 8D 41 FF 89 45 F0 89 55 EC 8B 55 EC 8B }
-    condition:
-        all of them
-}
-
 rule Windows_Trojan_Generic_bbe6c282 {
     meta:
         author = "Elastic Security"
@@ -255,5 +235,97 @@ rule Windows_Trojan_Generic_f0c79978 {
         $a2 = "\\helpers\\execassembly_x64"
     condition:
         all of them
+}
+
+rule Windows_Trojan_Generic_40899c85 {
+    meta:
+        author = "Elastic Security"
+        id = "40899c85-bb49-412c-8081-3a1359957c52"
+        fingerprint = "d02a17a3b9efc2fd991320a5db7ab2384f573002157cddcd12becf137e893bd8"
+        creation_date = "2023-12-15"
+        last_modified = "2024-01-12"
+        threat_name = "Windows.Trojan.Generic"
+        reference_sample = "88eb4f2e7085947bfbd03c69573fdca0de4a74bab844f09ecfcf88e358af20cc"
+        severity = 100
+        arch_context = "x86"
+        scan_context = "file, memory"
+        license = "Elastic License v2"
+        os = "windows"
+    strings:
+        $a1 = "_sqlDataTypeSize"
+        $a2 = "ChromeGetName"
+        $a3 = "get_os_crypt"
+    condition:
+        all of them
+}
+
+rule Windows_Trojan_Generic_9997489c {
+    meta:
+        author = "Elastic Security"
+        id = "9997489c-4e22-4df1-90cb-dd098ca26505"
+        fingerprint = "4c872be4e5eaf46c92e6f7d62ed0801992c36fee04ada1a1a3039890e2893d8c"
+        creation_date = "2024-01-31"
+        last_modified = "2024-02-08"
+        threat_name = "Windows.Trojan.Generic"
+        severity = 100
+        arch_context = "x86"
+        scan_context = "file, memory"
+        license = "Elastic License v2"
+        os = "windows"
+    strings:
+        $ldrload_dll = { 43 6A 45 9E }
+        $loadlibraryw = { F1 2F 07 B7 }
+        $ntallocatevirtualmemory = { EC B8 83 F7 }
+        $ntcreatethreadex = { B0 CF 18 AF }
+        $ntqueryinformationprocess = { C2 5D DC 8C }
+        $ntprotectvirtualmemory = { 88 28 E9 50 }
+        $ntreadvirtualmemory = { 03 81 28 A3 }
+        $ntwritevirtualmemory = { 92 01 17 C3 }
+        $rtladdvectoredexceptionhandler = { 89 6C F0 2D }
+        $rtlallocateheap = { 5A 4C E9 3B }
+        $rtlqueueworkitem = { 8E 02 92 AE }
+        $virtualprotect = { 0D 50 57 E8 }
+    condition:
+        4 of them
+}
+
+rule Windows_Trojan_Generic_2993e5a5 {
+    meta:
+        author = "Elastic Security"
+        id = "2993e5a5-26b2-4cfd-8130-4779abcfecb2"
+        fingerprint = "709015984e3c9abaf141b76bf574921466493475182ca30a56dbc3671030b632"
+        creation_date = "2024-03-18"
+        last_modified = "2024-03-18"
+        threat_name = "Windows.Trojan.Generic"
+        reference_sample = "9f9b926cef69e879462d9fa914dda8c60a01f3d409b55afb68c3fb94bf1a339b"
+        severity = 100
+        arch_context = "x86"
+        scan_context = "file, memory"
+        license = "Elastic License v2"
+        os = "windows"
+    strings:
+        $a = { 0C 8B 45 F0 89 45 C8 8B 45 C8 8B 40 3C 8B 4D F0 8D 44 01 04 89 }
+    condition:
+        1 of them
+}
+
+rule Windows_Trojan_Generic_0e135d58 {
+    meta:
+        author = "Elastic Security"
+        id = "0e135d58-efd9-4d5e-95d8-ddd597f8e6a8"
+        fingerprint = "e1a9e0c4e5531ae4dd2962285789c3bb8bb2621aa20437384fc3abcc349718c6"
+        creation_date = "2024-03-19"
+        last_modified = "2024-03-19"
+        threat_name = "Windows.Trojan.Generic"
+        reference_sample = "a91c1d3965f11509d1c1125210166b824a79650f29ea203983fffb5f8900858c"
+        severity = 100
+        arch_context = "x86"
+        scan_context = "file, memory"
+        license = "Elastic License v2"
+        os = "windows"
+    strings:
+        $a = { 55 8B EC 8B 45 14 56 57 8B 7D 08 33 F6 89 47 0C 39 75 10 76 15 8B }
+    condition:
+        1 of them
 }
 

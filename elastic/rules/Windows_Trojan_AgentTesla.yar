@@ -6,6 +6,7 @@ rule Windows_Trojan_AgentTesla_d3ac2b2f {
         creation_date = "2021-03-22"
         last_modified = "2022-06-20"
         threat_name = "Windows.Trojan.AgentTesla"
+        reference = "https://www.elastic.co/security-labs/attack-chain-leads-to-xworm-and-agenttesla"
         reference_sample = "65463161760af7ab85f5c475a0f7b1581234a1e714a2c5a555783bdd203f85f4"
         severity = 100
         arch_context = "x86"
@@ -64,6 +65,7 @@ rule Windows_Trojan_AgentTesla_e577e17e {
         creation_date = "2022-03-11"
         last_modified = "2022-04-12"
         threat_name = "Windows.Trojan.AgentTesla"
+        reference = "https://www.elastic.co/security-labs/attack-chain-leads-to-xworm-and-agenttesla"
         reference_sample = "ed43ddb536e6c3f8513213cd6eb2e890b73e26d5543c0ba1deb2690b5c0385b6"
         severity = 100
         arch_context = "x86"
@@ -84,6 +86,7 @@ rule Windows_Trojan_AgentTesla_f2a90d14 {
         creation_date = "2022-03-11"
         last_modified = "2022-04-12"
         threat_name = "Windows.Trojan.AgentTesla"
+        reference = "https://www.elastic.co/security-labs/attack-chain-leads-to-xworm-and-agenttesla"
         reference_sample = "ed43ddb536e6c3f8513213cd6eb2e890b73e26d5543c0ba1deb2690b5c0385b6"
         severity = 100
         arch_context = "x86"
@@ -104,6 +107,7 @@ rule Windows_Trojan_AgentTesla_a2d69e48 {
         creation_date = "2023-05-01"
         last_modified = "2023-06-13"
         threat_name = "Windows.Trojan.AgentTesla"
+        reference = "https://www.elastic.co/security-labs/attack-chain-leads-to-xworm-and-agenttesla"
         reference_sample = "edef51e59d10993155104d90fcd80175daa5ade63fec260e3272f17b237a6f44"
         severity = 100
         arch_context = "x86"
@@ -115,5 +119,31 @@ rule Windows_Trojan_AgentTesla_a2d69e48 {
         $a2 = { 00 06 17 5F 16 FE 01 16 FE 01 2A 00 03 30 03 00 B1 00 00 00 }
     condition:
         all of them
+}
+
+rule Windows_Trojan_AgentTesla_ebf431a8 {
+    meta:
+        author = "Elastic Security"
+        id = "ebf431a8-45e8-416c-a355-4ac1db2d133a"
+        fingerprint = "2d95dbe502421d862eee33ba819b41cb39cf77a44289f4de4a506cad22f3fddb"
+        creation_date = "2023-12-01"
+        last_modified = "2024-01-12"
+        threat_name = "Windows.Trojan.AgentTesla"
+        reference = "https://www.elastic.co/security-labs/attack-chain-leads-to-xworm-and-agenttesla"
+        reference_sample = "0cb3051a80a0515ce715b71fdf64abebfb8c71b9814903cb9abcf16c0403f62b"
+        severity = 100
+        arch_context = "x86"
+        scan_context = "file, memory"
+        license = "Elastic License v2"
+        os = "windows"
+    strings:
+        $a1 = "MozillaBrowserList"
+        $a2 = "EnableScreenLogger"
+        $a3 = "VaultGetItem_WIN7"
+        $a4 = "PublicIpAddressGrab"
+        $a5 = "EnableTorPanel"
+        $a6 = "get_GuidMasterKey"
+    condition:
+        4 of them
 }
 
