@@ -62,3 +62,46 @@ rule Windows_Trojan_GhostPulse_3673d337 {
         any of them
 }
 
+rule Windows_Trojan_GhostPulse_8ae8310b {
+    meta:
+        author = "Elastic Security"
+        id = "8ae8310b-4ead-4b5c-be73-7db365470891"
+        fingerprint = "61213fd4ce9ddebdc7de8e6b23827347af3cbddd61254f95917e9af6b8a2b7b2"
+        creation_date = "2024-05-27"
+        last_modified = "2024-06-12"
+        threat_name = "Windows.Trojan.GhostPulse"
+        reference_sample = "5b64f91b41a7390d89cd3b1fccf02b08b18b7fed17a43b0bfac63d75dc0df083"
+        severity = 100
+        arch_context = "x86"
+        scan_context = "file, memory"
+        license = "Elastic License v2"
+        os = "windows"
+    strings:
+        $a = { 48 8B 84 24 ?? 0D 00 00 8B 40 14 0F BA E8 09 48 8B 8C 24 ?? 0D 00 00 89 41 14 48 8B 84 24 ?? 0D 00 00 48 8B 8C 24 ?? 05 00 00 48 89 88 C0 ?? 00 00 }
+        $b = { BA C8 90 F0 B2 48 8B ?? ?? ?? E8 ?? ?? ?? 00 48 89 ?? ?? ?? 07 00 00 BA 9C 6C DA DC 48 8B ?? ?? ?? E8 ?? ?? ?? 00 48 89 ?? ?? ?? 07 00 00 BA 8D 20 4A A1 48 8B ?? ?? ?? E8 ?? ?? ?? 00 48 89 ?? ?? ?? 07 00 00 BA D4 7C 1A A8 }
+    condition:
+        any of them
+}
+
+rule Windows_Trojan_GhostPulse_9e22c56d {
+    meta:
+        author = "Elastic Security"
+        id = "9e22c56d-91bf-4259-8b60-aa7323b5e8f9"
+        fingerprint = "5e9883ad58fee79960a6e5e3c266885c6dc72057a16f4ea0e371088571e9b663"
+        creation_date = "2024-07-21"
+        last_modified = "2024-07-26"
+        threat_name = "Windows.Trojan.GhostPulse"
+        reference_sample = "349b4dfa1e93144b010affba926663264288a5cfcb7b305320f466b2551b93df"
+        severity = 100
+        arch_context = "x86"
+        scan_context = "file, memory"
+        license = "Elastic License v2"
+        os = "windows"
+    strings:
+        $a = { C7 44 24 28 80 3C 36 FE C7 44 24 2C FF FF FF FF 53 6A 00 }
+        $b = { 80 7C 24 04 3F ?? ?? 8A 74 24 08 38 74 1E 05 8A 6C 24 10 ?? ?? 80 7C 24 08 3F }
+        $c = { 89 41 5C 8B 44 24 ?? 8B 80 04 01 00 00 89 44 24 ?? 8B 42 3C 8B 44 02 78 8B 4C 02 20 01 D1 89 4C 24 ?? 8B 4C 02 1C 89 4C 24 ?? 8B 44 02 24 89 44 }
+    condition:
+        any of them
+}
+
