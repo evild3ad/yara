@@ -1,5 +1,5 @@
 /*
-Elastic Security YARA Rules (2025-06-22)
+Elastic Security YARA Rules (2025-07-25)
 https://github.com/elastic/protections-artifacts/
 
 Note: These rules are licensed under the Elastic License v2.
