@@ -8,7 +8,7 @@ rule Windows_Trojan_Vidar_9007feb2 {
         threat_name = "Windows.Trojan.Vidar"
         reference_sample = "34c0cb6eaf2171d3ab9934fe3f962e4e5f5e8528c325abfe464d3c02e5f939ec"
         severity = 100
-        arch_context = "x86"
+        arch_context = "x86, arm64"
         scan_context = "file, memory"
         license = "Elastic License v2"
         os = "windows"
@@ -28,7 +28,7 @@ rule Windows_Trojan_Vidar_114258d5 {
         threat_name = "Windows.Trojan.Vidar"
         reference_sample = "34c0cb6eaf2171d3ab9934fe3f962e4e5f5e8528c325abfe464d3c02e5f939ec"
         severity = 100
-        arch_context = "x86"
+        arch_context = "x86, arm64"
         scan_context = "file, memory"
         license = "Elastic License v2"
         os = "windows"
@@ -53,7 +53,7 @@ rule Windows_Trojan_Vidar_32fea8da {
         threat_name = "Windows.Trojan.Vidar"
         reference_sample = "6f5c24fc5af2085233c96159402cec9128100c221cb6cb0d1c005ced7225e211"
         severity = 100
-        arch_context = "x86"
+        arch_context = "x86, arm64"
         scan_context = "file, memory"
         license = "Elastic License v2"
         os = "windows"
@@ -75,7 +75,7 @@ rule Windows_Trojan_Vidar_c374cd85 {
         threat_name = "Windows.Trojan.Vidar"
         reference_sample = "1c677585a8b724332849c411ffe2563b2b753fd6699c210f0720352f52a6ab72"
         severity = 50
-        arch_context = "x86"
+        arch_context = "x86, arm64"
         scan_context = "file, memory"
         license = "Elastic License v2"
         os = "windows"
@@ -95,7 +95,7 @@ rule Windows_Trojan_Vidar_65d3d7e5 {
         threat_name = "Windows.Trojan.Vidar"
         reference_sample = "83d7c2b437a5cbb314c457d3b7737305dadb2bc02d6562a98a8a8994061fe929"
         severity = 100
-        arch_context = "x86"
+        arch_context = "x86, arm64"
         scan_context = "file, memory"
         license = "Elastic License v2"
         os = "windows"
@@ -111,5 +111,77 @@ rule Windows_Trojan_Vidar_65d3d7e5 {
         $str_9 = "milozs" ascii fullword
     condition:
         6 of them
+}
+
+rule Windows_Trojan_Vidar_5e3e5c75 {
+    meta:
+        author = "Elastic Security"
+        id = "5e3e5c75-00a6-4dca-ac29-1a4d3554b9bd"
+        fingerprint = "6a21d58bd025d08b40c64fd38df8af637bc97938b268143427aaa96c79a8caa7"
+        creation_date = "2025-12-16"
+        last_modified = "2026-02-02"
+        threat_name = "Windows.Trojan.Vidar"
+        reference_sample = "0f8976f8b0f6f717ffdfb22cfc1620eee53ce462975bb270929bff3497d22beb"
+        severity = 100
+        arch_context = "x86"
+        scan_context = "file, memory"
+        license = "Elastic License v2"
+        os = "windows"
+    strings:
+        $a = "%DRIVE_FIXED%" fullword
+        $e = "%DRIVE_REMOVABLE%" fullword
+        $d = "_0.indexeddb.leveldb" fullword
+        $c = "key4.db" fullword
+    condition:
+        all of them
+}
+
+rule Windows_Trojan_Vidar_4ed00a37 {
+    meta:
+        author = "Elastic Security"
+        id = "4ed00a37-9101-4c54-ad42-06e81051be69"
+        fingerprint = "92f3a503d66bc9873691a36f8259aee86948e0b9594e6b8c492b970d9d587500"
+        creation_date = "2025-12-16"
+        last_modified = "2026-02-02"
+        threat_name = "Windows.Trojan.Vidar"
+        reference_sample = "0f8976f8b0f6f717ffdfb22cfc1620eee53ce462975bb270929bff3497d22beb"
+        severity = 100
+        arch_context = "x86"
+        scan_context = "file, memory"
+        license = "Elastic License v2"
+        os = "windows"
+    strings:
+        $a = { 8A 1C 32 44 30 C3 88 1C 31 }
+        $b = { 42 8A 1C 1A 44 30 C3 42 88 1C 19 }
+    condition:
+        all of them
+}
+
+rule Windows_Trojan_Vidar_540563cf {
+    meta:
+        author = "Elastic Security"
+        id = "540563cf-c0d4-4720-b465-85469366a600"
+        fingerprint = "6a804cc2bf7b71497cd70c653763bd2359d1716921adb2943425f03bd2521da1"
+        creation_date = "2026-01-30"
+        last_modified = "2026-03-17"
+        threat_name = "Windows.Trojan.Vidar"
+        reference_sample = "5293d0caca719e681358502968b75c2209e78d2822975a9ab54cec10f0f4dc57"
+        severity = 100
+        arch_context = "x86"
+        scan_context = "file, memory"
+        license = "Elastic License v2"
+        os = "windows"
+    strings:
+        $a = { 48 8D 15 ?? ?? FF FF 41 B8 00 01 00 00 E8 ?? ?? ?? 00 48 8D 0D }
+        $b = { 48 00 6F 00 73 00 74 00 4E 00 61 00 6D 00 65 00 00 00 55 00 73 00 65 00 72 00 4E 00 61 00 6D 00 65 00 00 00 50 00 61 00 73 00 73 00 77 00 6F 00 72 00 64 00 00 00 50 00 6F 00 72 00 74 00 4E 00 75 00 6D 00 62 00 65 00 72 }
+        $c = { 8D 48 01 0F AF C8 83 E1 01 74 02 EB FE C3 }
+        $d = { 31 C0 41 80 3C 24 31 0F 94 C0 89 86 14 04 00 00 }
+        $e = { 31 C0 41 80 3C 24 31 0F 94 C0 89 86 38 04 00 00 }
+        $f = { 45 31 C0 41 80 3C 24 31 41 0F 94 C0 44 89 86 24 04 00 00 }
+        $g = "File Grabber Rules" fullword
+        $h = "Wallet Rules" fullword
+        $i = "%08lX%04lX%08lX" fullword
+    condition:
+        5 of them
 }
 

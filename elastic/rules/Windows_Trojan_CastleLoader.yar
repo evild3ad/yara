@@ -8,7 +8,7 @@ rule Windows_Trojan_CastleLoader_173548b8 {
         threat_name = "Windows.Trojan.CastleLoader"
         reference_sample = "1b6befc65b19a63b4131ce5bcc6e8c0552fe1e1d136ab94bc7d81b3924056156"
         severity = 100
-        arch_context = "x86"
+        arch_context = "x86, arm64"
         scan_context = "file, memory"
         license = "Elastic License v2"
         os = "windows"
@@ -20,5 +20,26 @@ rule Windows_Trojan_CastleLoader_173548b8 {
         $e = { 83 7C 24 ?? 20 0F 85 ?? ?? ?? ?? 80 7C 24 ?? B8 0F 85 ?? ?? ?? ?? B9 01 00 00 00 C7 44 24 ?? B8 BB 00 00 C7 44 24 ?? C0 C2 10 00 C7 44 24 ?? 00 00 00 00 }
     condition:
         4 of them
+}
+
+rule Windows_Trojan_CastleLoader_f8aa8151 {
+    meta:
+        author = "Elastic Security"
+        id = "f8aa8151-9669-4a37-968d-30af263dd74f"
+        fingerprint = "788229c8a1e306cb23bd3f0e7c9b77af341b4a15d53ba93d198289902f7bc298"
+        creation_date = "2026-02-25"
+        last_modified = "2026-03-17"
+        threat_name = "Windows.Trojan.CastleLoader"
+        reference_sample = "957fffe2255cef8517cfc5eb149a55bbeb975bcbba0b01640da01e35e16d49b8"
+        severity = 100
+        arch_context = "x86"
+        scan_context = "file, memory"
+        license = "Elastic License v2"
+        os = "windows"
+    strings:
+        $a = { 25 FF 03 00 00 83 F8 19 74 ?? 83 F8 23 74 ?? 83 F8 3F 74 ?? 83 F8 28 74 ?? 83 F8 43 74 ?? 83 F8 2B 74 ?? 83 F8 2C 74 ?? 83 F8 40 74 ?? 83 F8 37 74 ?? 83 F8 22 }
+        $b = { 32 C0 B9 0A 02 00 00 F3 AA }
+    condition:
+        all of them
 }
 
